@@ -1,14 +1,74 @@
 {
-  "大家好，我叫凯文·弗里斯。": {
-    "english": "Hello everyone, my name is Kevin Fries.",
-    "definition": "Introduction sentence."
-  },
   "我喜欢在学习的时候听音乐。": {
-    "english": "I like listening to music while studying.",
+    "en": "I like listening to music while studying.",
+    "es": "Me gusta escuchar música mientras estudio.",
+    "fr": "J'aime écouter de la musique en étudiant.",
+    "de": "Ich höre gerne Musik beim Lernen.",
+    "ja": "勉強中に音楽を聴くのが好きです。",
+    "ko": "공부할 때 음악 듣기를 좋아합니다.",
+    "ru": "Я люблю слушать музыку во время учебы.",
+    "it": "Mi piace ascoltare musica mentre studio.",
+    "pt": "Eu gosto de ouvir música enquanto estudo.",
     "definition": "Full sentence."
   },
   "明天我们去公园踢足球。": {
-    "english": "Tomorrow we will go to the park to play soccer.",
+    "en": "Tomorrow we will go to the park to play soccer.",
+    "es": "Mañana iremos al parque a jugar al fútbol.",
+    "fr": "Demain nous irons au parc pour jouer au football.",
+    "de": "Morgen gehen wir in den Park Fußball spielen.",
+    "ja": "明日は公園にサッカーをしに行きます。",
+    "ko": "내일 우리는 공원에 축구하러 갈 거예요.",
+    "ru": "Завтра мы пойдем в парк играть в футбол.",
+    "it": "Domani andremo al parco a giocare a calcio.",
+    "pt": "Amanhã vamos ao parque jogar futebol.",
     "definition": "Full sentence."
+  },
+  "大家好": {
+    "en": "Hello everyone",
+    "es": "Hola a todos",
+    "fr": "Bonjour à tous",
+    "de": "Hallo zusammen",
+    "ja": "みなさん、こんにちは",
+    "ko": "여러분 안녕하세요",
+    "ru": "Всем привет",
+    "it": "Ciao a tutti",
+    "pt": "Olá a todos",
+    "definition": "A common greeting."
+  },
+  "我叫凯文·弗里斯。": {
+    "en": "Hello, my name is Kevin Fries.",
+    "es": "Hola, me llamo Kevin Fries.",
+    "fr": "Bonjour, je m'appelle Kevin Fries.",
+    "de": "Hallo, ich heiße Kevin Fries.",
+    "ja": "こんにちは、ケビン・フライズです。",
+    "ko": "안녕하세요, 제 이름은 케빈 프라이스입니다.",
+    "ru": "Здравствуйте, меня зовут Кевин Фрис.",
+    "it": "Ciao, mi chiamo Kevin Fries.",
+    "pt": "Olá, meu nome é Kevin Fries.",
+    "definition": "A common self-introduction."
+  },
+  "我叫": {
+    "en": "my name is",
+    "es": "me llamo",
+    "fr": "je m'appelle",
+    "de": "ich heiße",
+    "ja": "私の名前は",
+    "ko": "제 이름은",
+    "ru": "меня зовут",
+    "it": "mi chiamo",
+    "pt": "meu nome é",
+    "definition": "Phrase used to introduce oneself."
+  },
+  "凯文·弗里斯": {
+    "en": "Kevin Fries",
+    "es": "Kevin Fries",
+    "fr": "Kevin Fries",
+    "de": "Kevin Fries",
+    "ja": "ケビン・フライズ",
+    "ko": "케빈 프라이스",
+    "ru": "Кевин Фрис",
+    "it": "Kevin Fries",
+    "pt": "Kevin Fries",
+    "definition": "A person's name."
   }
 }

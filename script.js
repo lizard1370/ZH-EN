@@ -3,21 +3,40 @@
   if (!res.ok) return;
   const rawData = await res.json();
 
+  const languages = {
+    en: 'English',
+    es: 'Spanish',
+    fr: 'French',
+    de: 'German',
+    ja: 'Japanese',
+    ko: 'Korean',
+    ru: 'Russian',
+    it: 'Italian',
+    pt: 'Portuguese'
+  };
+
   document.querySelectorAll('.translatable').forEach((el) => {
     const text = el.textContent.trim();
     const entry = rawData[text];
     if (!entry) return;
 
+    // Store all translations in data attributes
     el.setAttribute('data-zh', text);
-    el.setAttribute('data-en', entry.english);
+    Object.keys(languages).forEach(lang => {
+      el.setAttribute(`data-${lang}`, entry[lang] || '');
+    });
 
     const newHTML = text.replace(/[\p{L}·]+/gu, (word) => {
       const esc = (str) => String(str).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;');
+      let tooltipContent = Object.entries(languages)
+        .map(([code, name]) => `<b>${name}:</b> ${esc(entry[code] || '')}`)
+        .join('<br>');
+      tooltipContent += `<br><b>Definition:</b> ${esc(entry.definition || '')}`;
+      
       return `<span class="word" data-word="${esc(word)}">
                 ${esc(word)}
                 <span class="tooltip">
-                  <b>English:</b> ${esc(entry.english)}<br>
-                  <b>Definition:</b> ${esc(entry.definition || '')}
+                  ${tooltipContent}
                 </span>
               </span>`;
     });
@@ -34,35 +53,56 @@
     if (!e.target.closest('.word')) document.querySelectorAll('.word.active').forEach((w) => w.classList.remove('active'));
   }, true);
 
-  const btn = document.getElementById('toggleLangBtn');
-  let showEnglish = false;
-
-  btn.addEventListener('click', () => {
-    showEnglish = !showEnglish;
-    btn.classList.toggle('active', showEnglish);
-
+  const langSelect = document.createElement('select');
+  langSelect.id = 'languageSelector';
+  langSelect.className = 'language-select';
+  
+  // Add language options
+  const defaultOption = document.createElement('option');
+  defaultOption.value = 'zh';
+  defaultOption.textContent = 'Chinese (Original)';
+  langSelect.appendChild(defaultOption);
+  
+  Object.entries(languages).forEach(([code, name]) => {
+    const option = document.createElement('option');
+    option.value = code;
+    option.textContent = name;
+    langSelect.appendChild(option);
+  });
+  
+  // Insert the language selector before the first translation box
+  document.querySelector('.translator-container').insertAdjacentElement('beforebegin', langSelect);
+  
+  // Handle language changes
+  langSelect.addEventListener('change', () => {
+    const selectedLang = langSelect.value;
+    
     document.querySelectorAll('.translatable').forEach((el) => {
-      el.textContent = showEnglish ? el.getAttribute('data-en') : el.getAttribute('data-zh');
-    });
-
-    if (!showEnglish) {
-      document.querySelectorAll('.translatable').forEach((el) => {
-        const text = el.textContent.trim();
+      const text = selectedLang === 'zh' ? el.getAttribute('data-zh') : el.getAttribute(`data-${selectedLang}`);
+      if (!text) return;
+      
+      if (selectedLang === 'zh') {
         const entry = rawData[text];
         if (!entry) return;
-
+        
         const newHTML = text.replace(/[\p{L}·]+/gu, (word) => {
           const esc = (str) => String(str).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;');
+          let tooltipContent = Object.entries(languages)
+            .map(([code, name]) => `<b>${name}:</b> ${esc(entry[code] || '')}`)
+            .join('<br>');
+          tooltipContent += `<br><b>Definition:</b> ${esc(entry.definition || '')}`;
+          
           return `<span class="word" data-word="${esc(word)}">
                     ${esc(word)}
                     <span class="tooltip">
-                      <b>English:</b> ${esc(entry.english)}<br>
-                      <b>Definition:</b> ${esc(entry.definition || '')}
+                      ${tooltipContent}
                     </span>
                   </span>`;
         });
         el.innerHTML = newHTML;
-      });
-    }
+      } else {
+        el.textContent = text;
+      }
+    });
   });
 })();
