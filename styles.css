@@ -1,114 +1,160 @@
+* {
+  user-select: none !important;
+  -webkit-user-select: none !important;
+  -moz-user-select: none !important;
+  -ms-user-select: none !important;
+}
+
+.translatable, .word, .tooltip {
+  user-select: text;
+  -webkit-user-select: text;
+}
+.toggle-btn {
+  user-select: none;
+}
+
 :root {
-    --accent: #007aff;
-    --fg: #111;
-    --glass-bg: rgba(255,255,255,0.25);
+  --accent: #007aff;
+  --fg: #111;
+  --glass-bg: rgba(255,255,255,0.25);
 }
 
 body {
-    font-family: -apple-system, BlinkMacSystemFont, "SF Pro Text","Helvetica Neue", Arial;
-    background: linear-gradient(180deg,#8f8fbabc 0%,#ababe0 100%);
-    margin: 0;
-    min-height: 100vh;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    padding: 24px;
-    color: var(--fg);
-    overflow: hidden;
+  font-family: -apple-system, BlinkMacSystemFont, "SF Pro Text","Helvetica Neue", Arial;
+  background: linear-gradient(180deg,#8f8fbabc 0%,#ababe0 100%);
+  margin: 0;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 24px;
+  color: var(--fg);
+  overflow: hidden;
 }
 
 .container {
-    width: 95%;
-    max-width: 900px;
-    background: rgba(255,255,255,0.55);
-    backdrop-filter: blur(25px) saturate(160%);
-    -webkit-backdrop-filter: blur(25px) saturate(160%);
-    border-radius: 26px;
-    padding: 36px;
-    border: 1px solid rgba(255,255,255,0.45);
-    box-shadow: 0 10px 40px rgba(0,0,0,0.08);
-    text-align: center;
+  width: 95%;
+  max-height: 600px;
+  max-width: 600px;
+  background: rgba(255,255,255,0.55);
+  backdrop-filter: blur(25px) saturate(160%);
+  -webkit-backdrop-filter: blur(25px) saturate(160%);
+  border-radius: 10px;
+  padding: 36px;
+  border: 1px solid rgba(255,255,255,0.45);
+  box-shadow: 0 10px 40px rgba(0,0,0,0.08);
+  text-align: center;
+  overflow: auto;
+  resize: both;
+  min-width: 200px;
+  min-height: 150px;
 }
 
+
 .translatable {
-    display: block;
-    margin: 10px 0;
-    font-size: 1.25rem;
+  display: block;
+  margin: 10px 0;
+  font-size: 1.25rem;
 }
 
 .word {
-    position: relative;
-    cursor: pointer;
-    color: #000;
-    display: inline-block;
-    margin: 0 3px;
-    transition: color 0.2s ease, transform 0.12s ease;
+  position: relative;
+  cursor: pointer;
+  color: #000;
+  display: inline-block;
+  margin: 0 3px;
+  transition: color 0.2s ease, transform 0.12s ease;
 }
 
 .word:hover { color: var(--accent); }
 .word.active { color: var(--accent); }
 
 .tooltip {
-    position: absolute;
-    bottom: 150%;
-    left: 50%;
-    transform: translateX(-50%) translateY(20px) scale(1);
-    opacity: 0;
-    pointer-events: none;
-    min-width: 220px;
-    max-width: 280px;
-    background: var(--glass-bg);
-    backdrop-filter: blur(30px) saturate(180%);
-    -webkit-backdrop-filter: blur(30px) saturate(180%);
-    border: 1px solid rgba(255,255,255,0.24);
-    border-radius: 16px;
-    padding: 12px 14px;
-    box-shadow: 0 6px 24px rgba(0,0,0,0.12);
-    text-align: left;
-    font-size: 14px;
-    line-height: 1.4;
-    color: var(--fg);
-    z-index: 30;
+  position: absolute;
+  bottom: 150%;
+  left: 50%;
+  transform: translateX(-50%) translateY(20px) scale(1);
+  opacity: 0;
+  pointer-events: none;
+  min-width: 220px;
+  max-width: 280px;
+  background: var(--glass-bg);
+  backdrop-filter: blur(30px) saturate(180%);
+  -webkit-backdrop-filter: blur(30px) saturate(180%);
+  border: 1px solid rgba(255,255,255,0.24);
+  border-radius: 16px;
+  padding: 12px 14px;
+  box-shadow: 0 6px 24px rgba(0,0,0,0.12);
+  text-align: left;
+  font-size: 14px;
+  line-height: 1.4;
+  color: var(--fg);
+  z-index: 30;
 }
 
 .tooltip::after {
-    content: "";
-    position: absolute;
-    top: 100%;
-    left: 50%;
-    margin-left: -6px;
-    border-width: 6px;
-    border-style: solid;
-    border-color: rgba(255,255,255,0.85) transparent transparent transparent;
-    filter: blur(1px);
+  content: "";
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  margin-left: -6px;
+  border-width: 6px;
+  border-style: solid;
+  border-color: rgba(255,255,255,0.85) transparent transparent transparent;
+  filter: blur(1px);
+}
+
+.tooltip.below {
+  top: 150%;
+  bottom: auto;
+  transform: translateX(-50%) translateY(-20px);
+}
+
+.tooltip.below::after {
+  top: auto;
+  bottom: 100%;
+  border-color: transparent transparent rgba(255,255,255,0.85) transparent;
+}
+
+.tooltip .gt-title {
+  display: inline-block;
+  font-weight: 600;
+  color: #4285F4;
+  font-size: 15px;
+  text-decoration: none;
+  margin-bottom: 4px;
+}
+
+.tooltip .gt-title:hover {
+  text-decoration: none;
 }
 
 .tooltip b { color: var(--accent); font-weight: 600; }
 
 @keyframes popUp {
-    0% { transform: translateX(-50%) translateY(20px) scale(.9); opacity: 0; }
-    60% { transform: translateX(-50%) translateY(-4px) scale(1.02); opacity: 1; }
-    100% { transform: translateX(-50%) translateY(0) scale(1); opacity: 1; }
+  0% { transform: translateX(-50%) translateY(20px) scale(.9); opacity: 0; }
+  60% { transform: translateX(-50%) translateY(-4px) scale(1.02); opacity: 1; }
+  100% { transform: translateX(-50%) translateY(0) scale(1); opacity: 1; }
 }
 
 .word.active .tooltip {
-    animation: popUp .35s cubic-bezier(.34,1.56,.64,1);
-    opacity: 1;
-    transform: translateX(-50%) translateY(0) scale(1);
-    pointer-events: auto;
+  animation: popUp .35s cubic-bezier(.34,1.56,.64,1);
+  opacity: 1;
+  transform: translateX(-50%) translateY(0) scale(1);
+  pointer-events: auto;
 }
 
 .toggle-btn {
-    font-family: -apple-system, BlinkMacSystemFont, "SF Pro Text","Helvetica Neue", Arial;
-    font-size: 1rem;
-    padding: 8px 14px;
-    border-radius: 12px;
-    border: 1px solid rgba(0,0,0,0.1);
-    background: rgba(255,255,255,0.6);
-    backdrop-filter: blur(15px);
-    cursor: pointer;
-    margin-bottom: 20px;
-    transition: all 0.25s ease;
+  font-family: -apple-system, BlinkMacSystemFont, "SF Pro Text","Helvetica Neue", Arial;
+  font-size: 1rem;
+  padding: 8px 14px;
+  border-radius: 12px;
+  border: 1px solid rgba(0,0,0,0.1);
+  background: rgba(255,255,255,0.6);
+  backdrop-filter: blur(15px);
+  cursor: pointer;
+  margin-bottom: 20px;
+  transition: all 0.25s ease;
 }
 
 .toggle-btn .en { color: #aaa; transition: color 0.2s; }

@@ -1,22 +1,24 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="utf-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>Chinese Tooltip Toggle</title>
-<link rel="stylesheet" href="styles.css">
+  <meta charset="utf-8" />
+  <meta name="google" content="notranslate">
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Chinese Tooltip Translate</title>
+  <link rel="stylesheet" href="styles.css">
 </head>
 <body>
   <div class="container">
     <button id="toggleLangBtn" class="toggle-btn">
       <span class="zh">中</span> / <span class="en">EN</span>
     </button>
-
-    <div class="translatable">大家好，我叫凯文·弗里斯。</div>
-    <div class="translatable">我喜欢在学习的时候听音乐。</div>
-    <div class="translatable">明天我们去公园踢足球。</div>
+    <div class="translatable">大家好，我 姓名 凯文·弗里斯.</div>
+    <div class="translatable">我 听 音乐 的时候 在学习.</div>
+    <div class="translatable">明天 我 要 踢 足球.</div>
   </div>
-
-<script src="script.js"></script>
+   <script>
+     document.addEventListener('contextmenu', e => e.preventDefault());
+   </script>
+  <script src="script.js"></script>
 </body>
 </html>

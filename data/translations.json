@@ -1,14 +1,25 @@
 {
-  "大家好，我叫凯文·弗里斯。": {
-    "english": "Hello everyone, my name is Kevin Fries.",
-    "definition": "Introduction sentence."
-  },
-  "我喜欢在学习的时候听音乐。": {
-    "english": "I like listening to music while studying.",
-    "definition": "Full sentence."
-  },
-  "明天我们去公园踢足球。": {
-    "english": "Tomorrow we will go to the park to play soccer.",
-    "definition": "Full sentence."
-  }
+  "大家好": { "english": "Hello everyone", "definition": "a greeting to everyone" },
+  "我": { "english": "I / me", "definition": "used by a speaker to refer to himself or herself as the object of a verb or preposition" },
+  "喜欢": { "english": "like / enjoy" },
+  "在": { "english": "at / during" },
+  "学习": { "english": "study / learning" },
+  "的时候": { "english": "when / while" },
+  "听": { "english": "listen to" },
+  "音乐": { "english": "music" },
+  "明天": { "english": "tomorrow" },
+  "我们": { "english": "we / us" },
+  "去": { "english": "go to" },
+  "公园": { "english": "park" },
+  "踢足球": { "english": "play soccer" },
+  "凯文·弗里斯": { "english": "Kevin Fries" },
+  "姓名": { "english": "name" },
+  "足球": { "english": "soccer / football" },
+  "。": { "english": "." },
+  "要": { "english": "want to / going to"},
+  "踢": { "english": "kick / play"},
+  "在学": { "english": "Studying" },
+  "听音乐": { "english": "listening" },
+  "乐曲": { "english": "song/music" },
+  "在学习": { "english": "while studying" }
 }
