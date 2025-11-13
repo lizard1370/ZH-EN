@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 * {
   user-select: none !important;
   -webkit-user-select: none !important;
@@ -155,9 +156,92 @@ body {
   cursor: pointer;
   margin-bottom: 20px;
   transition: all 0.25s ease;
+=======
+/* Modern Translator Styling */
+body {
+    background-color: #f0f2f5;
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 20px;
 }
 
-.toggle-btn .en { color: #aaa; transition: color 0.2s; }
-.toggle-btn.active .en { color: var(--accent); }
-.toggle-btn .zh { color: var(--accent); }
-.toggle-btn.active .zh { color: #aaa; }
+h1 {
+    text-align: center;
+    color: #1a73e8;
+    margin-bottom: 1rem;
+}
+
+#languageSelector {
+    display: block;
+    max-width: 800px;
+    margin: 0 auto 2rem auto;
+    padding: 12px;
+    font-size: 16px;
+    border: 1px solid #e0e0e0;
+    border-radius: 8px;
+    background-color: white;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    cursor: pointer;
+}
+
+.translator-container {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 2rem;
+    background: #ffffff;
+    border-radius: 12px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+>>>>>>> 4aa905a1cd5f771492d63220e3e210384227f68d
+}
+
+.translation-box {
+    background: #f8f9fa;
+    border-radius: 8px;
+    padding: 1.5rem;
+    margin-bottom: 1rem;
+}
+
+.language-select {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 10px;
+    border: 1px solid #e0e0e0;
+    border-radius: 6px;
+    font-size: 16px;
+}
+
+textarea {
+    width: 95%;
+    min-height: 150px;
+    padding: 1rem;
+    border: 1px solid #e0e0e0;
+    border-radius: 6px;
+    font-size: 16px;
+    resize: none;
+    min-width: 30px;
+    transition: border-color 1s ease-in-out;
+}
+
+textarea:focus {
+    outline: none;
+    border-color: #4a90e2;
+    box-shadow: 0 0 5px rgba(74, 144, 226, 0.3);
+}
+
+.swap-btn {
+    display: block;
+    width: 40px;
+    height: 40px;
+    margin: 1rem auto;
+    background: #f8f9fa;
+    border: 1px solid #e0e0e0;
+    border-radius: 50%;
+    cursor: pointer;
+    font-size: 20px;
+    transition: transform 0.3s ease;
+}
+
+.swap-btn:hover {
+    transform: rotate(180deg);
+    background: #eef2f7;
+}
